@@ -1,13 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Potato } from './entities/potatoes'
+import { PostingModule } from './posting/posting.module';
+import { RandQuestionModule } from './randQuestion/randQuestion.module';
 import "reflect-metadata";
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), TypeOrmModule.forFeature([Potato])],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TypeOrmModule.forRoot(), 
+    PostingModule, 
+    RandQuestionModule
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
